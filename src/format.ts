@@ -1,39 +1,50 @@
-export const format = (date: Date, format: string) => {
-    if (typeof date !== 'object') throw new Error('given date is not a date')
-    if (typeof format !== 'string') throw new Error('format is not a string')
+/**
+ * Format a Date object into a custom string format.
+ * Supported tokens: YYYY, MM, DD, HH, mm, ss
+ */
 
-    const year: number = date.getFullYear()
-    const month: number = date.getMonth() + 1;
-    const day: number = date.getDate()
-    const hour: number = date.getHours()
-    const minute: number = date.getMinutes()
-    const second: number = date.getSeconds()
+export const formatDate = (date: Date, formatStr: string): string => {
+    if (!(date instanceof Date) || isNaN(date.getTime())) throw new Error('The provided value is not a valid Date.')
 
-    return format
+    if (typeof formatStr !== 'string') {
+        throw new Error('Format must be a string.')
+    }
+
+    const year = date.getFullYear()
+    const month = date.getMonth() + 1 // Months are 0-indexed
+    const day = date.getDate()
+    const hour = date.getHours()
+    const minute = date.getMinutes()
+    const second = date.getSeconds()
+
+    // Helper to pad numbers to 2 digits
+    const pad = (num: number) => (num < 10 ? `0${num}` : num.toString())
+
+    return formatStr
         .replace('YYYY', year.toString())
-        .replace('MM', month < 10 ? `0${month}` : month.toString())
-        .replace('DD', day < 10 ? `0${day}` : day.toString())
-        .replace('HH', hour.toString())
-        .replace('mm', minute < 10 ? `0${minute}` : minute.toString())
-        .replace('ss', second < 10 ? `0${second}` : second.toString())
+        .replace('MM', pad(month))
+        .replace('DD', pad(day))
+        .replace('HH', pad(hour))
+        .replace('mm', pad(minute))
+        .replace('ss', pad(second))
 }
 
-export const to12Hour = (time: Date) => {
-    if (typeof time !== 'object') throw new Error('time is not a date')
+/**
+ * Convert a Date or ISO string to 12-hour time format (HH:MM AM/PM)
+ */
+export const to12Hour = (isoTime: Date | string): string => {
+    const date = new Date(isoTime)
 
-    const hours: number = time.getHours()
-    const minutes: number = time.getMinutes()
-    const hour: number = hours > 12 ? hours - 12 : hours
-    const minute: number | string = minutes < 10 ? `0${minutes}` : minutes
+    if (!(date instanceof Date) || isNaN(date.getTime())) throw new Error('Invalid Date provided.')
 
-    return `${hour}:${minute} ${hour > 12 ? 'PM' : 'AM'}`
-}
+    // Decide between UTC (if ISO string) or local time (if Date object)
+    const hours = typeof isoTime === 'string' ? date.getUTCHours() : date.getHours()
+    const minutes = typeof isoTime === 'string' ? date.getUTCMinutes() : date.getMinutes()
 
-export const to24Hour = (time: string) => {
-    if (typeof time !== 'string') throw new Error('time is not a string')
-    console.log(time.split(' ')[1]);
-    const appm: string = time.split(' ')[1] as string
-    const [hours, minutes] = time.split(':')
-    const minute = parseInt(minutes)
-    const hour = parseInt(hours)
+    // Convert to 12-hour format
+    const hour12 = hours % 12 === 0 ? 12 : hours % 12
+    const minuteStr = minutes < 10 ? `0${minutes}` : `${minutes}`
+    const period = hours >= 12 ? 'PM' : 'AM'
+
+    return `${hour12}:${minuteStr} ${period}`
 }
