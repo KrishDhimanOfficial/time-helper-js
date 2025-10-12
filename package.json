@@ -1,8 +1,10 @@
 {
   "name": "time-helper",
   "version": "1.0.0",
-  "description": "",
-  "main": "./src/index.ts",
+  "description": "A lightweight JavaScript library for handling time, date, and formatting operations easily",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -10,9 +12,9 @@
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "start": "tsx ./src/index.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+ "keywords": ["time", "date", "helper", "utility", "javascript"],
+  "author": "Krish Dhiman",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^22.10.1",
     "tsx": "^4.19.1",
