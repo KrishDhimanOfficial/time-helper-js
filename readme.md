@@ -2,6 +2,8 @@
 
 A lightweight TypeScript utility library for date and time formatting operations. This package provides simple and intuitive functions to format dates, convert between time formats, calculate relative times, and perform date utilities.
 
+https://github.com/KrishDhimanOfficial/time-helper-js
+
 ## Installation
 
 ```bash
