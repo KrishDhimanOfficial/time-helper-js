@@ -1,5 +1,5 @@
 {
-  "name": "time-helper",
+  "name": "time-helper-js",
   "version": "1.0.0",
   "description": "A lightweight JavaScript library for handling time, date, and formatting operations easily",
   "main": "dist/index.js",
