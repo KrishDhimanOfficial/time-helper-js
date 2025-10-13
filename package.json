@@ -23,9 +23,6 @@
   ],
   "author": "Krish Dhiman",
   "license": "MIT",
-  "publishConfig": {
-    "registry": "https://git@github.com:KrishDhimanOfficial/time-helper-js.git"
-  },
   "devDependencies": {
     "@types/node": "^22.10.1",
     "tsx": "^4.19.1",
