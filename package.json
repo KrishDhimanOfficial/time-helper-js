@@ -1,6 +1,6 @@
 {
   "name": "time-helper-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight JavaScript library for handling time, date, and formatting operations easily",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -23,6 +23,10 @@
   ],
   "author": "Krish Dhiman",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KrishDhimanOfficial/time-helper-js.git"
+  },
   "devDependencies": {
     "@types/node": "^22.10.1",
     "tsx": "^4.19.1",
