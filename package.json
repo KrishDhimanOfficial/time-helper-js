@@ -4,7 +4,9 @@
   "description": "A lightweight JavaScript library for handling time, date, and formatting operations easily",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -12,9 +14,18 @@
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "start": "tsx ./src/index.ts"
   },
- "keywords": ["time", "date", "helper", "utility", "javascript"],
+  "keywords": [
+    "time",
+    "date",
+    "helper",
+    "utility",
+    "javascript"
+  ],
   "author": "Krish Dhiman",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://git@github.com:KrishDhimanOfficial/time-helper-js.git"
+  },
   "devDependencies": {
     "@types/node": "^22.10.1",
     "tsx": "^4.19.1",
