@@ -1,4 +1,4 @@
-import { formatDate, to12Hour, to24Hour, now, getTime } from './format.js'
+import { formatDate, to12Hour, to24Hour, now, getTime, msToDate } from './format.js'
 import { timeAgo, timeFromNow, timeDiff } from './relative.js'
 import { } from './duration.js'
 import { isLeapYear, daysInMonth, isToday } from './date.utils.js'
@@ -14,5 +14,6 @@ export {
     timeDiff,
     isLeapYear,
     daysInMonth,
-    isToday
+    isToday,
+    msToDate
 }

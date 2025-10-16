@@ -76,3 +76,8 @@ export const now = (): Date => new Date()
  * get current time
  */
 export const getTime = (): number => new Date().getTime()
+
+/**
+ * get date from  milliseconds
+ */
+export const msToDate = (milliseconds: number): Date => new Date(milliseconds)

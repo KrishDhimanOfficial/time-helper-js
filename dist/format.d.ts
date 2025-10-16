@@ -19,3 +19,7 @@ export declare const now: () => Date;
  * get current time
  */
 export declare const getTime: () => number;
+/**
+ * get date from  milliseconds
+ */
+export declare const msToDate: (milliseconds: number) => Date;

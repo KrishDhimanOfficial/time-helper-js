@@ -61,4 +61,8 @@ export const now = () => new Date();
  * get current time
  */
 export const getTime = () => new Date().getTime();
+/**
+ * get date from  milliseconds
+ */
+export const msToDate = (milliseconds) => new Date(milliseconds);
 //# sourceMappingURL=format.js.map
