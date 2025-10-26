@@ -19,7 +19,9 @@
     "date",
     "helper",
     "utility",
-    "javascript"
+    "javascript",
+    "typescript",
+    "time-helper"
   ],
   "author": "Krish Dhiman",
   "license": "MIT",
